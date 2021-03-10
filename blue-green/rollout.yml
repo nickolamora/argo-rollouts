@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-bluegreen
+  name: rollout-bluegreen-active
 spec:
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollout-bluegreen
+      app: rollout-bluegreen-active
   template:
     metadata:
       labels:
-        app: rollout-bluegreen
+        app: rollout-bluegreen-active
     spec:
       containers:
-      - name: rollouts-demo
+      - name: rollout-bluegreen-active
         image: argoproj/rollouts-demo:blue
         imagePullPolicy: Always
         ports:
